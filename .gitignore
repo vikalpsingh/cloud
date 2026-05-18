@@ -3,3 +3,5 @@
 !.env.example
 __pycache__/
 *.pyc
+customer_data.db
+.venv/

@@ -39,6 +39,25 @@ python src/main.py
 
 4. Follow the prompts to enter a stock symbol and view the call option data.
 
+## Streamlit Customer Web App
+
+A second app is included for Streamlit Cloud deployment:
+
+- App file: `streamlit_app.py`
+- Login credentials:
+  - Username: `vikalpsingh`
+  - Password: `BLR1977!ROAD`
+- Storage: lightweight SQLite database stored in `customer_data.db`
+
+To run locally:
+
+```
+pip install -r requirements.txt
+streamlit run streamlit_app.py
+```
+
+On Streamlit Cloud, set the app entrypoint to `streamlit_app.py`.
+
 ## Contributing
 
 If you would like to contribute to this project, please feel free to submit a pull request or open an issue for discussion.
