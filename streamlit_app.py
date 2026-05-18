@@ -22,7 +22,7 @@ def verify_password(password: str) -> bool:
     return secrets.compare_digest(hash_password(password), PASSWORD_HASH)
 
 
-@st.experimental_singleton
+@st.cache_resource
 def get_db_connection():
     conn = sqlite3.connect(DB_FILE, check_same_thread=False)
     conn.row_factory = sqlite3.Row
@@ -74,7 +74,7 @@ def main() -> None:
                     st.session_state.authenticated = True
                     st.session_state.username = username
                     st.success("Login successful.")
-                    st.experimental_rerun()
+                    st.rerun()
                 else:
                     st.error("Invalid username or password.")
         st.info("Use your registered username and password to access the customer manager.")
@@ -83,7 +83,7 @@ def main() -> None:
     st.sidebar.markdown(f"**Logged in as:** {st.session_state.username}")
     if st.sidebar.button("Logout"):
         logout()
-        st.experimental_rerun()
+        st.rerun()
 
     tabs = st.tabs(["Add customer name", "Display customer name"])
 
